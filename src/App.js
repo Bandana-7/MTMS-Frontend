@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Nav from "./components/Nav"
+import BG from "./images/Theatre.jpg"
+import { BrowserRouter, Switch,Route } from 'react-router-dom';
+// import Signin from "./components/Signup";
+import SignUp from './components/Signup';
+import SignIn from './components/Signin';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App =()=> {
+    return(
+        <div style={{backgroundImage:"url("+BG+")"}}
+        className = " bg-no-repeat bg-center bg-cover">        
+        <BrowserRouter>
+        <Nav />
+        <Switch>
+            
+            <Route path="/signup" exact component={SignUp}/>
+            <Route path="/signin" exact component={SignIn}/>
+        </Switch>
+   </BrowserRouter>
+   </div>
+        
+    );
+        
+        
 }
-
 export default App;
